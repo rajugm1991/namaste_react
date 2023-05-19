@@ -39,6 +39,11 @@ import ReactDOM  from "react-dom/client";
  * 
  */
 
+
+/**
+ *  React.createElement => object => HtmlElment(render)
+ * 
+ */
 const parent=React.createElement("div",{id:'parent'},
 React.createElement('div',{id: 'child'},
 [React.createElement('h1',{},'i am h1'),React.createElement('h2',{},'i am h2')]
@@ -51,3 +56,25 @@ const heading=React.createElement("h1",{id:"heading"},"Hello world from react");
 const root=ReactDOM.createRoot(document.getElementById("react"));
 //root.render(heading);
 root.render(parent);
+
+
+
+// jsx - it is syntax (ES6);
+// JSX (transpiled before if reaches the JS) - parcel- Babel
+// JSX  => React.createElemet => ReactELement-JS object => HtmlElement(render)
+
+const jsxHeadong=<h1 id="heading">Namaste react using jsx</h1>
+root.render(jsxHeadong);
+ 
+
+// React compenent
+//  It is java script which return JSX
+
+// Functional based components
+
+
+const HeadingComponent=()=>{
+    return <h1>Namaste react functional compenent</h1>
+}
+
+root.render(<HeadingComponent/>);

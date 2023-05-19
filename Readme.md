@@ -35,3 +35,12 @@ Namaste react change :-) '
 - Minification
 - Bundling
 - Compressing 
+
+
+# episode 3
+- Set up build and start
+- JSX
+- BABEL
+- React componets
+    - Class based components- OLD
+    - Functional Components -new 
