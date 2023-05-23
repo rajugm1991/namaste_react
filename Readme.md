@@ -44,3 +44,28 @@ Namaste react change :-) '
 - React componets
     - Class based components- OLD
     - Functional Components -new 
+
+
+
+# Food app
+
+
+/**
+ * 
+ * Header
+ *  - Logo
+ *  - Nav items
+ * 
+ * Body
+ *  - Search
+ *  - Resturant container
+ *         - Resto card
+ * Footer
+ *  - Copyroght
+ *  - Links
+ *  - Address
+ *  - Contact us
+ * 
+ */
+
+
