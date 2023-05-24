@@ -11,8 +11,10 @@ import '/index.css';
 const AppLayout =()=>{
     return (
         <div className="app">
+          <>
             <Header/>
             <Body/>
+            </>
         </div>
     )
 }
