@@ -1,5 +1,7 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import {HEADER_IMAGE_URL} from '../utils/constant'
+
 
 const Header =()=>{
 
@@ -14,9 +16,12 @@ src={HEADER_IMAGE_URL}
             </div>
           <div className="nav-items">
             <ul>
-                <li>Home</li>
-                <li>About us</li>
-                <li>Contact us</li> 
+                <li> <Link to='/'>Home </Link></li>
+                <li>
+                   <Link to='/aboutUs'>About us</Link> </li>
+                <li><Link to='/contactUs'>Contact us</Link> </li> 
+                <li><Link to='/instamart'>Insta mart</Link> </li> 
+
                 <li>Cart</li>
             </ul>
           
@@ -25,9 +30,6 @@ src={HEADER_IMAGE_URL}
         {isLoggedIn 
         ? <button name='logout' onClick={()=>setIsLoggedIn(false)}> Logout</button>
         :<button name='login'  onClick={()=>setIsLoggedIn(true)}> Login</button>}  
-        
-   
-         
         </div>
     )
 }

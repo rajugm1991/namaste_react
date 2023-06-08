@@ -68,4 +68,9 @@ Namaste react change :-) '
  * 
  */
 
+ # Finding path
+ * Building shimmer UI
+ * react-router-dom package to route urls
+ * 
+
 

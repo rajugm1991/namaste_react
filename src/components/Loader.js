@@ -1,6 +1,11 @@
+
+
 const Loader =()=>{
     return (
-        <h1  className="loader">Loading........</h1>
+        <div className="rest-container">
+            {Array(10).fill('').map((i,index)=>  <div key={index} className="shimmer-card"/>)}
+          
+        </div>
     )
 }
 
