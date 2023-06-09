@@ -1,4 +1,5 @@
 import React from "react";
+import UserContext from "../utils/UserContext";
 
 class ProfileClass extends React.Component{
 
@@ -44,11 +45,24 @@ class ProfileClass extends React.Component{
             <h1>Profile class - {this.props.nameP}</h1>
             <h2>Count value : {this.state.count}</h2>
 
+  
             <br/>
             name: {this.state.userInfo.name}<br/>
             location: {this.state.userInfo.location}<br/>
             image:  <img src={this.state.userInfo.avatar_url}/><br/>
 
+         <UserContext.Consumer>
+         {
+            ({user})=>
+            <>
+                  <h1 className="text-pink-500">{user.name}</h1>
+                 <span className="text-purple-400">{user.email}</span>
+
+                 </>
+               
+              
+         }
+         </UserContext.Consumer>
             <br/>
             <button onClick={()=>{
                 this.setState(prev=>{

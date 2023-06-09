@@ -8,8 +8,9 @@ const About =()=>{
         <h1>About us</h1>
           <h2> This is about page2</h2>
         {/* <Outlet/> */}
+        <ProfileClass nameP={'rajuP'}/>
          <ProfileFunction/>
-         <ProfileClass nameP={'rajuP'}/>
+       
           </>
     )
     

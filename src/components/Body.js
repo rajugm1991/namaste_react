@@ -1,15 +1,18 @@
 import RestroCard  from "./RestroCard";
 import {restObj} from '../utils/mockData'
-import {useState,useEffect, lazy} from 'react';
+import {useState,useEffect, lazy, useContext} from 'react';
 import Loader from "./Loader";
 import NoData from "./NoData";
 import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
+import UserContext from "../utils/UserContext";
 
 
 
 const Body =() =>{
 
+
+    const {user,setUser}=useContext(UserContext);
     
     const [restaurantData,setResturantData]=useState([]);
     const [filterresturants, setfilterresturants] =useState(restObj);
@@ -40,9 +43,10 @@ const Body =() =>{
     }
 
     return restaurantData?.length===0? <Loader/> :(
-        <div className="body">
-            <div className="search">
+        <div className="p-3 m-2">
+            <div className="search flex py-2">
                 <input 
+                className="focus:bg-green-200"
                  name="search"
                  id="search"
                  type="Text"
@@ -54,17 +58,38 @@ const Body =() =>{
                  }}
                 />
 
+           <input value={user.name} 
+            type='text'
+            placeholder="enter name"
+            name="name"
+            onChange={(e)=>setUser({
+                ...user,
+                name:e.target.value
+            })}
+            >
+           </input>
 
-            </div>
-            <div className="filterRestro">
-            <button className="restro-btn"
+           <input value={user.email} 
+            type='text'
+            placeholder="enter email"
+            name="email"
+            onChange={(e)=>setUser({
+                ...user,
+                email:e.target.value
+            })}
+            >
+           </input>
+           
+            <div className="filterRestro  ">
+            <button className="restro-btn p-3 bg-fuchsia-400 rounded-full"
             onClick={filterRatings} >Filter resturant by above 4+ ratings </button>    
 
-<button className="restro-clear-btn"
+      <button className="restro-btn p-3 bg-fuchsia-400 rounded-md"
             onClick={()=>setfilterresturants(restaurantData)} >Clear filter</button>   
             </div>
+            </div>
 
-            <div className="rest-container">
+            <div className="rest-container flex flex-wrap">
                
                 {filterresturants.length===0? <NoData/>  :filterresturants.map(restDaata=>
                <Link key={restDaata.data.id} to={'/resturantMenu/'+restDaata.data.id}><RestroCard key={restDaata.data.id} restData={restDaata}
