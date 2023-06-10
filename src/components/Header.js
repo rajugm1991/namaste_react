@@ -1,4 +1,5 @@
 import { useContext, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import {HEADER_IMAGE_URL} from '../utils/constant'
 import UserContext from '../utils/UserContext';
@@ -7,6 +8,8 @@ import UserContext from '../utils/UserContext';
 const Header =()=>{
 
     const {user} =useContext(UserContext);
+
+    const cartItems=useSelector(store=>store.cart.items)
 
     const[isLoggedIn,setIsLoggedIn] =useState(false);
 
@@ -25,7 +28,7 @@ src={HEADER_IMAGE_URL}
                 <li className='px-2'><Link to='/contactUs'>Contact us</Link> </li> 
                 <li className='px-2'><Link to='/instamart'>Insta mart</Link> </li> 
 
-                <li className='px-2'>Cart</li>
+                <li className='px-2'>Cart {cartItems.length} iteams</li>
             </ul>
           
           <span className='p-10 text-red-500'> {user.name}</span>

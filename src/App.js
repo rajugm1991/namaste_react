@@ -9,6 +9,8 @@ import Error from "./components/Error";
 import ResturantMenu from "./components/ResturantMenu";
 import ProfileFunction from "./components/ProfileFunction";
 import UserContext from "./utils/UserContext";
+import { Provider } from "react-redux";
+import store from "./utils/store";
 
 
 const Instamart=lazy(()=>import('./components/Instamart'))
@@ -23,7 +25,7 @@ const AppLayout =()=>{
 
     return (
         <div className="app">
-          <>
+          <Provider store={store}>
            <UserContext.Provider value={{
             user:user,
             setUser:setUser
@@ -31,7 +33,7 @@ const AppLayout =()=>{
             <Header/>
             <Outlet/>
             </UserContext.Provider>
-            </>
+            </Provider>
         </div>
     )
 }
